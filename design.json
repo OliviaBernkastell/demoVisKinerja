@@ -1,0 +1,355 @@
+{
+  "designSystem": {
+    "name": "Analytics Dashboard Design System",
+    "version": "1.0.0",
+    "style": "modern, gradient-heavy, soft UI with glassmorphism elements",
+
+    "colorPalette": {
+      "primary": {
+        "gradient": {
+          "type": "linear-gradient",
+          "colors": ["#FF6B6B", "#FF8E8E", "#FFB4B4", "#FFC6E5"],
+          "direction": "135deg",
+          "description": "Coral to pink gradient used for primary cards"
+        },
+        "solid": "#FF6B6B"
+      },
+      "secondary": {
+        "pink": "#FFB4D5",
+        "coral": "#FF8E8E",
+        "peach": "#FFC6A5"
+      },
+      "neutral": {
+        "background": "#F5F5F7",
+        "cardBackground": "#FFFFFF",
+        "darkBackground": "#1F2937",
+        "sidebarDark": "#1A1D2E"
+      },
+      "text": {
+        "primary": "#1F2937",
+        "secondary": "#6B7280",
+        "onDark": "#FFFFFF",
+        "onGradient": "#FFFFFF"
+      },
+      "accent": {
+        "yellow": "#FFC107",
+        "green": "#10B981",
+        "red": "#EF4444"
+      },
+      "charts": {
+        "female": "#FF6B6B",
+        "male": "#FFC107",
+        "other": "#C084FC",
+        "bar1": "#E5E7EB",
+        "bar2": "#9CA3AF",
+        "barHighlight": "#FF8E8E"
+      }
+    },
+
+    "typography": {
+      "fontFamily": {
+        "primary": "Inter, -apple-system, system-ui, sans-serif",
+        "fallback": "sans-serif"
+      },
+      "fontSizes": {
+        "displayLarge": "4rem",
+        "displayMedium": "3rem",
+        "heading1": "2.5rem",
+        "heading2": "2rem",
+        "heading3": "1.5rem",
+        "body": "1rem",
+        "small": "0.875rem",
+        "tiny": "0.75rem"
+      },
+      "fontWeights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeights": {
+        "tight": 1.2,
+        "normal": 1.5,
+        "relaxed": 1.75
+      }
+    },
+
+    "spacing": {
+      "unit": "8px",
+      "scale": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "2xl": "48px",
+        "3xl": "64px"
+      },
+      "cardPadding": "24px",
+      "sectionGap": "24px"
+    },
+
+    "borderRadius": {
+      "small": "8px",
+      "medium": "16px",
+      "large": "24px",
+      "xlarge": "32px",
+      "full": "9999px"
+    },
+
+    "shadows": {
+      "card": "0 2px 8px rgba(0, 0, 0, 0.04)",
+      "cardHover": "0 8px 24px rgba(0, 0, 0, 0.08)",
+      "elevated": "0 4px 16px rgba(0, 0, 0, 0.06)",
+      "soft": "0 1px 3px rgba(0, 0, 0, 0.02)"
+    },
+
+    "layout": {
+      "sidebar": {
+        "width": "240px",
+        "collapsedWidth": "80px",
+        "backgroundColor": "#1A1D2E",
+        "iconSize": "24px",
+        "iconSpacing": "16px",
+        "avatarSize": "48px",
+        "avatarPosition": "bottom"
+      },
+      "mainContent": {
+        "maxWidth": "1440px",
+        "padding": "32px",
+        "backgroundColor": "#F5F5F7"
+      },
+      "header": {
+        "height": "80px",
+        "alignment": "space-between",
+        "elements": ["title", "breadcrumb", "search", "actions"]
+      },
+      "grid": {
+        "columns": 12,
+        "gap": "24px",
+        "responsive": {
+          "mobile": 1,
+          "tablet": 2,
+          "desktop": 3
+        }
+      }
+    },
+
+    "components": {
+      "metricCard": {
+        "structure": "header + large number + visualization + breakdown",
+        "padding": "24px",
+        "borderRadius": "24px",
+        "background": "gradient or solid",
+        "shadow": "card",
+        "elements": {
+          "title": {
+            "fontSize": "small",
+            "fontWeight": "medium",
+            "color": "onGradient or primary"
+          },
+          "value": {
+            "fontSize": "displayLarge",
+            "fontWeight": "bold",
+            "format": "abbreviated (K, M)",
+            "color": "onGradient or primary"
+          },
+          "chart": {
+            "type": "inline sparkline or wave",
+            "height": "40px",
+            "opacity": 0.6
+          },
+          "breakdown": {
+            "layout": "horizontal grid",
+            "gap": "16px",
+            "itemFormat": "label + percentage"
+          }
+        }
+      },
+
+      "statsCard": {
+        "structure": "icon + value + label + progress",
+        "padding": "20px",
+        "borderRadius": "16px",
+        "background": "white or tinted",
+        "iconShape": "rounded square",
+        "iconSize": "48px",
+        "iconBackground": "tinted primary",
+        "valueSize": "heading2",
+        "labelSize": "body"
+      },
+
+      "listItem": {
+        "structure": "thumbnail + title + subtitle + metadata + actions",
+        "padding": "16px",
+        "borderRadius": "12px",
+        "hoverState": "subtle background",
+        "thumbnail": {
+          "size": "48px",
+          "borderRadius": "12px"
+        },
+        "metadata": {
+          "format": "icon + value + trend",
+          "trendColors": {
+            "positive": "#10B981",
+            "negative": "#EF4444"
+          }
+        }
+      },
+
+      "donutChart": {
+        "type": "segmented donut with center icon",
+        "thickness": "24px",
+        "size": "120px",
+        "centerIcon": "3D style",
+        "segments": {
+          "gap": "4px",
+          "colors": "from palette.charts"
+        },
+        "legend": {
+          "position": "below or side",
+          "dotSize": "8px"
+        }
+      },
+
+      "barChart": {
+        "type": "vertical bars with overlay line",
+        "barWidth": "16px",
+        "barRadius": "8px 8px 0 0",
+        "defaultColor": "#E5E7EB",
+        "highlightColor": "primary gradient",
+        "overlay": {
+          "type": "smooth curve line",
+          "thickness": "2px",
+          "color": "#1F2937"
+        },
+        "xAxis": {
+          "labels": "abbreviated days (M, T, W)",
+          "fontSize": "small"
+        }
+      },
+
+      "badge": {
+        "padding": "4px 12px",
+        "borderRadius": "full",
+        "fontSize": "tiny",
+        "fontWeight": "medium",
+        "variants": {
+          "notification": {
+            "background": "#EF4444",
+            "color": "#FFFFFF",
+            "position": "absolute top-right"
+          }
+        }
+      },
+
+      "button": {
+        "primary": {
+          "padding": "12px 24px",
+          "borderRadius": "12px",
+          "background": "#1F2937",
+          "color": "#FFFFFF",
+          "fontWeight": "medium",
+          "hoverEffect": "slight scale + shadow"
+        },
+        "icon": {
+          "size": "40px",
+          "padding": "8px",
+          "borderRadius": "12px",
+          "background": "transparent",
+          "hoverBackground": "rgba(0,0,0,0.04)"
+        }
+      },
+
+      "progressBar": {
+        "height": "8px",
+        "borderRadius": "full",
+        "background": "#E5E7EB",
+        "fill": "primary gradient or solid",
+        "animation": "smooth transition"
+      }
+    },
+
+    "patterns": {
+      "cardGrid": {
+        "description": "Mixed size cards in responsive grid",
+        "layouts": [
+          {
+            "type": "featured",
+            "span": "2 columns",
+            "height": "auto"
+          },
+          {
+            "type": "standard",
+            "span": "1 column",
+            "height": "auto"
+          },
+          {
+            "type": "compact",
+            "span": "1 column",
+            "height": "compact"
+          }
+        ]
+      },
+
+      "dataVisualization": {
+        "principles": [
+          "Use gradients for primary metrics",
+          "Inline sparklines for trends",
+          "Donut charts for proportions",
+          "Bar charts for time series",
+          "Always include percentage or absolute values"
+        ]
+      },
+
+      "microInteractions": {
+        "hover": {
+          "cards": "subtle shadow increase",
+          "buttons": "slight scale (1.02)",
+          "icons": "background tint"
+        },
+        "active": {
+          "scale": 0.98
+        },
+        "transition": "all 0.2s ease"
+      },
+
+      "iconography": {
+        "style": "outline and filled mix",
+        "strokeWidth": "1.5px",
+        "size": "20px to 24px",
+        "color": "inherit or contrast"
+      }
+    },
+
+    "responsiveBreakpoints": {
+      "mobile": "320px to 767px",
+      "tablet": "768px to 1023px",
+      "desktop": "1024px to 1439px",
+      "large": "1440px+"
+    },
+
+    "designPrinciples": [
+      "Use soft shadows instead of hard borders",
+      "Prefer gradients for featured/important content",
+      "Use rounded corners consistently (16px-24px for cards)",
+      "Maintain clear visual hierarchy with size and color",
+      "Keep data visualizations simple and readable",
+      "Use white space generously between sections",
+      "Implement subtle hover states on all interactive elements",
+      "Use abbreviated numbers (K, M) for large values",
+      "Include both visual and numerical data representations",
+      "Keep color palette limited but vibrant",
+      "Use tinted backgrounds for secondary elements",
+      "Ensure dark sidebar contrasts with light content area"
+    ],
+
+    "accessibilityGuidelines": {
+      "colorContrast": "WCAG AA minimum 4.5:1 for text",
+      "focusStates": "visible outline on keyboard navigation",
+      "altText": "descriptive for all data visualizations",
+      "semanticHTML": "proper heading hierarchy and landmarks"
+    }
+  }
+}

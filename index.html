@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic Meta Tags -->
+    <title>Dashboard Kinerja Karyawan | Sistem Pelacakan Kinerja</title>
+    <meta name="description" content="Dashboard komprehensif untuk melacak dan mengelola kinerja karyawan, rencana kerja, dan penyelesaian tugas secara real-time">
+    <meta name="keywords" content="dashboard kinerja, karyawan, rencana kerja, tracking, manajemen, produktivitas">
+    <meta name="author" content="Tim Pengembang Dashboard">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='50%25' style='stop-color:%23FF8E8E'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC6E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='55' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='50%25' style='stop-color:%23FF8E8E'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC6E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='55' font-family='Arial, sans-serif' font-size='40' font-weight='bold' fill='white' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Dashboard Kinerja Karyawan | Sistem Pelacakan Kinerja">
+    <meta property="og:description" content="Dashboard komprehensif untuk melacak dan mengelola kinerja karyawan, rencana kerja, dan penyelesaian tugas secara real-time">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='50%25' style='stop-color:%23FF8E8E'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC6E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='630' fill='url(%23grad)'/%3E%3Ctext x='600' y='250' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='white' text-anchor='middle'%3EDashboard Kinerja%3C/text%3E%3Ctext x='600' y='350' font-family='Arial, sans-serif' font-size='50' fill='white' text-anchor='middle'%3ESistem Pelacakan Kinerja Karyawan%3C/text%3E%3Ctext x='600' y='450' font-family='Arial, sans-serif' font-size='30' fill='white' text-anchor='middle'%3ELacak, kelola, dan analisis produktivitas tim%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Dashboard Kinerja">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dashboard Kinerja Karyawan">
+    <meta name="twitter:description" content="Dashboard komprehensif untuk melacak dan mengelola kinerja karyawan secara real-time">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='50%25' style='stop-color:%23FF8E8E'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC6E5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='630' fill='url(%23grad)'/%3E%3Ctext x='600' y='250' font-family='Arial, sans-serif' font-size='80' font-weight='bold' fill='white' text-anchor='middle'%3EDashboard Kinerja%3C/text%3E%3Ctext x='600' y='350' font-family='Arial, sans-serif' font-size='50' fill='white' text-anchor='middle'%3ESistem Pelacakan Kinerja Karyawan%3C/text%3E%3Ctext x='600' y='450' font-family='Arial, sans-serif' font-size='30' fill='white' text-anchor='middle'%3ELacak, kelola, dan analisis produktivitas tim%3C/text%3E%3C/svg%3E">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#FF6B6B">
+    <meta name="msapplication-TileColor" content="#FF6B6B">
+    <meta name="application-name" content="Dashboard Kinerja">
+    <meta name="apple-mobile-web-app-title" content="Dashboard Kinerja">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#FF6B6B',
+                            light: '#FF8E8E',
+                            lighter: '#FFB4B4',
+                            lightest: '#FFC6E5'
+                        },
+                        secondary: {
+                            pink: '#FFB4D5',
+                            coral: '#FF8E8E',
+                            peach: '#FFC6A5'
+                        },
+                        neutral: {
+                            background: '#F5F5F7',
+                            card: '#FFFFFF',
+                            dark: '#1F2937',
+                            sidebar: '#1A1D2E'
+                        },
+                        accent: {
+                            yellow: '#FFC107',
+                            green: '#10B981',
+                            red: '#EF4444'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        
+        /* Custom scrollbar for sidebar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-primary {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E, #FFB4B4, #FFC6E5);
+        }
+        
+        /* Animation for transitions */
+        .transition-all-300 {
+            transition: all 0.3s ease;
+        }
+        
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-neutral-background">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-neutral-sidebar text-white transition-all-300 flex flex-col fixed lg:relative h-full z-30 -translate-x-full lg:translate-x-0">
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center text-white font-bold mr-3">
+                        DK
+                    </div>
+                    <h2 class="text-xl font-semibold">Dashboard Kinerja</h2>
+                </div>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto custom-scrollbar p-4">
+                <div class="mb-6">
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Rencana Kinerja</h3>
+                    <ul id="categoryList" class="space-y-1">
+                        <!-- Categories will be populated dynamically -->
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Filter Tanggal</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label for="startDateInput" class="block text-sm font-medium text-gray-300 mb-1">Tanggal Awal</label>
+                            <input type="date" id="startDateInput"
+                                   class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label for="endDateInput" class="block text-sm font-medium text-gray-300 mb-1">Tanggal Akhir</label>
+                            <input type="date" id="endDateInput"
+                                   class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <button id="applyDateFilter" class="w-full py-2 bg-primary hover:bg-primary-light text-white font-medium rounded-md transition-colors">
+                            Terapkan Filter Tanggal
+                        </button>
+                        <button id="clearAllFilters" class="w-full py-2 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-md transition-colors">
+                            Reset Semua Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Mobile sidebar overlay -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden lg:hidden"></div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden lg:ml-0">
+            <!-- Top Header -->
+            <header class="bg-white shadow-sm z-10">
+                <div class="px-4 py-3 lg:px-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                        <div class="flex items-center">
+                            <button id="mobileMenuToggle" class="mr-3 p-2 rounded-md text-neutral-dark hover:bg-gray-100 lg:hidden">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <h1 class="text-lg font-semibold text-neutral-dark">Dashboard Kinerja</h1>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2">
+                            <!-- Tab Navigation -->
+                            <div class="flex space-x-1">
+                                <button id="tabDashboard" class="tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white">
+                                    <i class="fas fa-chart-bar mr-1"></i> Dashboard
+                                </button>
+                                <button id="tabPerorangan" class="tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-gray-200 text-gray-700">
+                                    <i class="fas fa-user mr-1"></i> Perorangan
+                                </button>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <button id="calendarView" class="flex-1 min-w-[120px] px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white">
+                                <i class="fas fa-calendar mr-1"></i> Kalender
+                            </button>
+                            <button id="refreshButton" class="p-2 rounded-md text-gray-600 hover:bg-gray-100">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Main Content Area -->
+            <main id="dashboardSection" class="flex-1 overflow-y-auto bg-gray-50 p-4 lg:p-6">
+                <!-- Metrics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="metricsCards">
+                    <div class="gradient-primary rounded-2xl p-6 text-white shadow-md" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E, #FFB4B4, #FFC6E5);">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium opacity-90">Total Kegiatan</h3>
+                            <i class="fas fa-chart-line opacity-70 text-lg"></i>
+                        </div>
+                        <div class="text-3xl font-bold mb-4" id="totalActivities">-</div>
+                        <div class="flex justify-between text-sm">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-green-300 rounded-full mr-1"></div>
+                                <span id="completedActivities">-</span>
+                                <span class="ml-1 opacity-80">Selesai</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-yellow-300 rounded-full mr-1"></div>
+                                <span id="inProgressActivities">-</span>
+                                <span class="ml-1 opacity-80">Berjalan</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-300 rounded-full mr-1"></div>
+                                <span id="pendingActivities">-</span>
+                                <span class="ml-1 opacity-80">Tunggu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-md" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-3" style="background: linear-gradient(135deg, #FF6B6B, #FFB4B4);">
+                                    <i class="fas fa-users text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">Total Karyawan</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900" id="totalEmployees">-</div>
+                        <div class="text-xs text-gray-500 mt-2">Total karyawan terdaftar</div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-md" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center mr-3" style="background: linear-gradient(135deg, #FFC107, #FFD54F);">
+                                    <i class="fas fa-layer-group text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500">Rencana Kinerja</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-3xl font-bold text-gray-900" id="totalCategories">-</div>
+                        <div class="text-xs text-gray-500 mt-2" id="planStatus">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Overview Status Section -->
+                <div class="bg-white rounded-xl p-5 shadow-md mb-6" id="statusSection">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-neutral-dark">Status Karyawan Hari Ini</h2>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-day mr-1"></i>
+                            <span id="todayDate"></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="font-medium text-green-700">Sudah Input Rencana</span>
+                            </div>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold" id="todayCompleted">-</span>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                            <div class="flex items-center">
+                                <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                <span class="font-medium text-red-700">Belum Input Rencana</span>
+                            </div>
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold" id="todayPending">-</span>
+                        </div>
+
+                        <div id="pendingEmployeesList" class="mt-3 space-y-2 max-h-40 overflow-y-auto">
+                            <!-- Daftar karyawan yang belum input akan muncul di sini -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar View Section -->
+                <div class="bg-white rounded-xl p-6 shadow-md mb-6" id="calendarSection" style="display: none;">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-neutral-dark">Kalender Rencana Kinerja</h2>
+                        <div class="flex items-center space-x-2">
+                            <button id="prevMonth" class="p-2 rounded-md text-gray-600 hover:bg-gray-100">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span id="currentMonth" class="text-sm font-medium text-gray-900 min-w-[120px] text-center"></span>
+                            <button id="nextMonth" class="p-2 rounded-md text-gray-600 hover:bg-gray-100">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-7 gap-1 mb-2">
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Min</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Sen</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Sel</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Rab</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Kam</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Jum</div>
+                        <div class="text-center text-xs font-medium text-gray-500 py-2">Sab</div>
+                    </div>
+
+                    <div id="calendarGrid" class="grid grid-cols-7 gap-1">
+                        <!-- Calendar cells will be populated dynamically -->
+                    </div>
+
+                    <!-- Calendar Legend -->
+                    <div class="mt-4 flex items-center justify-center space-x-4 text-xs">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-green-100 border border-green-300 rounded mr-2"></div>
+                            <span class="text-gray-600">Dengan rencana kerja</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-red-50 border border-red-200 rounded mr-2"></div>
+                            <span class="text-gray-600">Tanpa rencana kerja</span>
+                        </div>
+                    </div>
+
+                    <!-- Selected Date Details -->
+                    <div id="selectedDateDetails" class="mt-6 p-4 bg-gray-50 rounded-lg" style="display: none;">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-base font-semibold text-gray-900">
+                                <i class="fas fa-calendar-day mr-2 text-primary"></i>
+                                <span id="selectedDateText"></span>
+                            </h3>
+                            <button id="closeDateDetails" class="text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Employees with work plans -->
+                            <div>
+                                <h4 class="text-sm font-medium text-green-700 mb-2 flex items-center">
+                                    <i class="fas fa-check-circle mr-1"></i>
+                                    Sudah Membuat Rencana (<span id="withPlanCount">0</span>)
+                                </h4>
+                                <div id="employeesWithPlan" class="max-h-60 overflow-y-auto space-y-1">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- Employees without work plans -->
+                            <div>
+                                <h4 class="text-sm font-medium text-red-700 mb-2 flex items-center">
+                                    <i class="fas fa-times-circle mr-1"></i>
+                                    Belum Membuat Rencana (<span id="withoutPlanCount">0</span>)
+                                </h4>
+                                <div id="employeesWithoutPlan" class="max-h-60 overflow-y-auto space-y-1">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="bg-white rounded-xl p-6 shadow-md mb-6" id="chartsSection">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                        <h2 class="text-lg font-semibold text-neutral-dark mb-2 sm:mb-0">Kegiatan per Kategori</h2>
+                        <div class="flex space-x-2">
+                            <button class="chart-option px-3 py-1 rounded-md text-sm font-medium bg-primary text-white" data-chart="bar">Bar</button>
+                            <button class="chart-option px-3 py-1 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100" data-chart="pie">Pie</button>
+                            <button class="chart-option px-3 py-1 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-100" data-chart="line">Line</button>
+                        </div>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Employee Activities Table -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden" id="tableSection">
+                    <div class="p-4 border-b border-gray-200">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-2 sm:space-y-0">
+                            <h2 class="text-lg font-semibold text-neutral-dark">Aktivitas Karyawan</h2>
+                            <div class="relative w-full sm:w-auto">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
+                                </div>
+                                <input type="text" placeholder="Cari karyawan atau kegiatan..." id="employeeSearch" class="pl-10 pr-3 py-2 w-full sm:w-64 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" id="sortEmployee">
+                                        Nama Karyawan <i class="fas fa-sort text-gray-400 ml-1"></i>
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Rencana Kinerja
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Kegiatan
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" id="sortDate">
+                                        Periode <i class="fas fa-sort text-gray-400 ml-1"></i>
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="employeeTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- Table rows will be populated dynamically -->
+                            </tbody>
+                        </table>
+
+                        <!-- Pagination -->
+                        <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
+                            <div class="flex-1 flex justify-between sm:hidden">
+                                <!-- Mobile pagination -->
+                                <button id="prevPageMobile" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Previous
+                                </button>
+                                <button id="nextPageMobile" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Next
+                                </button>
+                            </div>
+                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700">
+                                        Menampilkan <span id="startRecord" class="font-medium">1</span> hingga <span id="endRecord" class="font-medium">10</span> dari <span id="totalRecords" class="font-medium">0</span> hasil
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <button id="prevPage" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </button>
+                                        <div id="pageNumbers" class="flex">
+                                            <!-- Page numbers will be generated dynamically -->
+                                        </div>
+                                        <button id="nextPage" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="tableLoading" class="flex justify-center items-center h-64">
+                        <div class="text-center">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                            <p class="mt-2 text-gray-500">Memuat data...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Perorangan Content (Hidden by default) -->
+            <div id="peroranganContent" class="hidden flex-1 overflow-y-auto custom-scrollbar bg-gray-50" style="display: none;">
+                <div class="p-6">
+                    <!-- Filters -->
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-neutral-dark mb-4">Filter</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Employee Filter -->
+                            <div>
+                                <label for="employeeSearchInput" class="block text-sm font-medium text-gray-700 mb-2">Pilih Pegawai</label>
+                                <div class="relative">
+                                    <input type="text"
+                                           id="employeeSearchInput"
+                                           placeholder="Ketik nama pegawai..."
+                                           class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-sm"
+                                           autocomplete="off">
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <i class="fas fa-user text-gray-400"></i>
+                                    </div>
+
+                                    <!-- Results Dropdown -->
+                                    <div id="employeeDropdown" class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-48 overflow-y-auto hidden">
+                                        <!-- Results will be populated here -->
+                                    </div>
+                                </div>
+
+                                <!-- Hidden field to store selected employee -->
+                                <input type="hidden" id="employeeFilter" value="">
+                            </div>
+
+                            <!-- Month Filter -->
+                            <div>
+                                <label for="monthFilter" class="block text-sm font-medium text-gray-700 mb-2">Pilih Bulan</label>
+                                <input type="month" id="monthFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+
+                            <!-- Apply Button -->
+                            <div class="flex items-end">
+                                <button id="applyPeroranganFilter" class="w-full px-4 py-2 bg-primary hover:bg-primary-light text-white font-medium rounded-md transition-colors">
+                                    Terapkan Filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Employee Calendar and Activity Details -->
+                    <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                        <!-- Calendar Header -->
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold text-neutral-dark">
+                                <i class="fas fa-calendar-alt mr-2 text-primary"></i>
+                                Kalender Kegiatan
+                            </h3>
+                        </div>
+
+                        <!-- Calendar Legend -->
+                        <div class="mb-4 flex items-center justify-center space-x-6 text-xs">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-red-50 border border-red-300 rounded mr-2"></div>
+                                <span class="text-gray-600">Tidak ada kegiatan</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-50 border border-green-300 rounded mr-2"></div>
+                                <span class="text-gray-600">Ada kegiatan (1-3)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-yellow-50 border border-yellow-300 rounded mr-2"></div>
+                                <span class="text-gray-600">Banyak kegiatan (4+)</span>
+                            </div>
+                        </div>
+
+                        <!-- Calendar Grid -->
+                        <div class="grid grid-cols-7 gap-1 mb-2">
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Min</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Sen</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Sel</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Rab</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Kam</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Jum</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-2">Sab</div>
+                        </div>
+
+                        <div id="calendarGridPerorangan" class="grid grid-cols-7 gap-1">
+                            <!-- Calendar cells will be populated dynamically -->
+                        </div>
+
+                        <!-- Selected Date Details (Initially Hidden) -->
+                        <div id="selectedDateDetailsPerorangan" class="mt-6" style="display: none;">
+                            <div class="mb-4">
+                                <h3 class="text-lg font-semibold text-neutral-dark">
+                                    <i class="fas fa-calendar-day mr-2 text-primary"></i>
+                                    <span id="selectedDateTextPerorangan"></span>
+                                </h3>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-tasks mr-1"></i>
+                                    Daftar Kegiatan (<span id="activityCount">0</span>)
+                                </h4>
+                                <div id="activityListPerorangan" class="space-y-2">
+                                    <!-- Activities will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-neutral-dark text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-50 flex items-center">
+        <i id="toastIcon" class="fas fa-check-circle mr-2"></i>
+        <span id="toastMessage">Data berhasil dimuat</span>
+    </div>
+
+  
+    <script>
+        // Global variables
+        let employeeData = [];
+        let categoryData = {};
+        let currentFilter = 'all';
+        let activeFilters = {
+            category: 'all',
+            dateRange: null
+        };
+        let filteredData = []; // Track currently filtered data
+        let categoryChart = null;
+        let currentChartType = 'bar'; // Track current chart type
+        let sortOrder = { date: 'desc', employee: 'asc' };
+        let currentDate = new Date();
+        let isCalendarView = false;
+
+        // Pagination variables
+        let currentPage = 1;
+        const recordsPerPage = 10;
+        let paginatedData = [];
+
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const categoryList = document.getElementById('categoryList');
+        const refreshButton = document.getElementById('refreshButton');
+        const employeeSearch = document.getElementById('employeeSearch');
+        const employeeTableBody = document.getElementById('employeeTableBody');
+        const tableLoading = document.getElementById('tableLoading');
+        const toast = document.getElementById('toast');
+        const toastIcon = document.getElementById('toastIcon');
+        const toastMessage = document.getElementById('toastMessage');
+        const applyDateFilter = document.getElementById('applyDateFilter');
+        const clearAllFilters = document.getElementById('clearAllFilters');
+        const startDateInput = document.getElementById('startDateInput');
+        const endDateInput = document.getElementById('endDateInput');
+
+        // Pagination elements
+        const prevPage = document.getElementById('prevPage');
+        const nextPage = document.getElementById('nextPage');
+        const prevPageMobile = document.getElementById('prevPageMobile');
+        const nextPageMobile = document.getElementById('nextPageMobile');
+        const pageNumbers = document.getElementById('pageNumbers');
+        const startRecord = document.getElementById('startRecord');
+        const endRecord = document.getElementById('endRecord');
+        const totalRecords = document.getElementById('totalRecords');
+        const sortEmployee = document.getElementById('sortEmployee');
+        const sortDate = document.getElementById('sortDate');
+
+      
+        // Calendar DOM Elements
+        const calendarView = document.getElementById('calendarView');
+        const calendarSection = document.getElementById('calendarSection');
+        const calendarGrid = document.getElementById('calendarGrid');
+        const currentMonth = document.getElementById('currentMonth');
+        const prevMonth = document.getElementById('prevMonth');
+        const nextMonth = document.getElementById('nextMonth');
+
+        // Calendar Details Elements
+        const selectedDateDetails = document.getElementById('selectedDateDetails');
+        const selectedDateText = document.getElementById('selectedDateText');
+        const closeDateDetails = document.getElementById('closeDateDetails');
+        const employeesWithPlan = document.getElementById('employeesWithPlan');
+        const employeesWithoutPlan = document.getElementById('employeesWithoutPlan');
+        const withPlanCount = document.getElementById('withPlanCount');
+        const withoutPlanCount = document.getElementById('withoutPlanCount');
+
+        // New DOM Elements for tracking features
+        const todayDate = document.getElementById('todayDate');
+        const todayCompleted = document.getElementById('todayCompleted');
+        const todayPending = document.getElementById('todayPending');
+        const pendingEmployeesList = document.getElementById('pendingEmployeesList');
+
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            loadEmployeeData();
+            initializeCharts();
+            setupTabSwitching();
+            setInitialTabState();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenuToggle.addEventListener('click', toggleMobileSidebar);
+            sidebarOverlay.addEventListener('click', closeMobileSidebar);
+
+            // Calendar view button
+            calendarView.addEventListener('click', () => switchTab('calendar'));
+            refreshButton.addEventListener('click', refreshData);
+
+            // Calendar navigation
+            prevMonth.addEventListener('click', navigatePrevMonth);
+            nextMonth.addEventListener('click', navigateNextMonth);
+
+            // Calendar details
+            closeDateDetails.addEventListener('click', hideDateDetails);
+
+            // Search functionality
+            employeeSearch.addEventListener('input', filterTable);
+
+            // Chart options
+            document.querySelectorAll('.chart-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.chart-option').forEach(opt => {
+                        opt.classList.remove('bg-primary', 'text-white');
+                        opt.classList.add('text-gray-600', 'hover:bg-gray-100');
+                    });
+                    this.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                    this.classList.add('bg-primary', 'text-white');
+
+                    // Store current chart type
+                    currentChartType = this.dataset.chart;
+                    updateCategoryChart(currentChartType);
+                });
+            });
+
+            // Enhanced date filter system
+            applyDateFilter.addEventListener('click', applyDateFilterDirectly);
+            clearAllFilters.addEventListener('click', clearAllActiveFilters);
+
+            // Pagination event listeners
+            prevPage.addEventListener('click', () => changePage(currentPage - 1));
+            nextPage.addEventListener('click', () => changePage(currentPage + 1));
+            prevPageMobile.addEventListener('click', () => changePage(currentPage - 1));
+            nextPageMobile.addEventListener('click', () => changePage(currentPage + 1));
+
+            // Sort functionality
+            sortEmployee.addEventListener('click', () => sortTable('employee'));
+            sortDate.addEventListener('click', () => sortTable('date'));
+        }
+
+        // Toggle mobile sidebar
+        function toggleMobileSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        }
+
+        // Close mobile sidebar
+        function closeMobileSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        // Load employee data
+        async function loadEmployeeData() {
+            // Show loading
+            tableLoading.style.display = 'flex';
+            employeeTableBody.style.display = 'none';
+
+            try {
+                // Load data from JSON file using XMLHttpRequest to avoid CORS issues
+                const jsonData = await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'mock-data.json', true);
+                    xhr.responseType = 'json';
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            resolve(xhr.response);
+                        } else {
+                            reject(new Error(`HTTP error! status: ${xhr.status}`));
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        reject(new Error('Network error while loading mock-data.json'));
+                    };
+
+                    xhr.send();
+                });
+
+                // Convert date strings to Date objects and add status
+                employeeData = jsonData.map((item, index) => ({
+                    ...item,
+                    id: index + 1, // Add unique ID starting from 1 (row number)
+                    startDate: new Date(item.tanggal_awal),
+                    endDate: new Date(item.tanggal_akhir),
+                    planCategory: item.rencana_kinerja,
+                    activity: item.kegiatan, // Map kegiatan field to activity
+                    status: determineStatus(new Date(item.tanggal_akhir), new Date(item.tanggal_awal))
+                }));
+
+                // Process data
+                processData();
+
+                // Initialize filtered data as all data
+                filteredData = [...employeeData];
+
+                // Reset pagination for initial load
+                currentPage = 1;
+
+                // Update UI
+                updateMetrics();
+                updateCategoryList();
+                updateCategoryChart('bar');
+                updateTable();
+
+                // Hide loading
+                tableLoading.style.display = 'none';
+                employeeTableBody.style.display = '';
+
+                // Show success toast
+                showToast('Data berhasil dimuat', 'success');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showToast('Gagal memuat data: ' + error.message, 'error');
+
+                // Reset all metrics to show empty state
+                document.getElementById('totalActivities').textContent = '-';
+                document.getElementById('completedActivities').textContent = '-';
+                document.getElementById('inProgressActivities').textContent = '-';
+                document.getElementById('pendingActivities').textContent = '-';
+                document.getElementById('totalEmployees').textContent = '-';
+                document.getElementById('totalCategories').textContent = '-';
+                document.getElementById('planStatus').textContent = 'Tidak ada data';
+                document.getElementById('todayCompleted').textContent = '-';
+                document.getElementById('todayPending').textContent = '-';
+                document.getElementById('pendingEmployeesList').innerHTML = '<div class="text-sm text-gray-500 text-center p-2">Tidak ada data karyawan</div>';
+
+                // Hide loading
+                tableLoading.style.display = 'none';
+                employeeTableBody.style.display = '';
+            }
+        }
+
+        // Determine status based on comparison with today's date
+        function determineStatus(endDate, startDate) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            endDate.setHours(0, 0, 0, 0);
+            startDate.setHours(0, 0, 0, 0);
+
+            // Jika tanggal hari ini sudah lewat dari tanggal akhir rencana kerja
+            if (today > endDate) {
+                return 'completed';
+            }
+            // Jika tanggal hari ini berada dalam range rencana kerja
+            else if (today >= startDate && today <= endDate) {
+                return 'in-progress';
+            }
+            // Jika tanggal hari ini belum sampai pada tanggal mulai rencana kerja
+            else {
+                return 'pending';
+            }
+        }
+
+        
+        // Process data to extract categories and other metrics
+        function processData() {
+            // Reset category data
+            categoryData = {};
+            
+            // Process each activity
+            employeeData.forEach(item => {
+                const category = item.planCategory;
+                
+                if (!categoryData[category]) {
+                    categoryData[category] = {
+                        name: category,
+                        count: 0,
+                        completed: 0,
+                        inProgress: 0,
+                        pending: 0,
+                        employees: new Set()
+                    };
+                }
+                
+                categoryData[category].count++;
+                categoryData[category].employees.add(item.employee);
+                
+                if (item.status === 'completed') {
+                    categoryData[category].completed++;
+                } else if (item.status === 'in-progress') {
+                    categoryData[category].inProgress++;
+                } else {
+                    categoryData[category].pending++;
+                }
+            });
+            
+            // Convert Set to Array for employees
+            Object.keys(categoryData).forEach(key => {
+                categoryData[key].employees = Array.from(categoryData[key].employees);
+            });
+        }
+
+        // Update metrics cards
+        function updateMetrics() {
+            updateMetricsWithData(employeeData);
+        }
+
+        // Update metrics cards with specific data
+        function updateMetricsWithData(data) {
+            // Total activities
+            const totalActivities = data.length;
+            document.getElementById('totalActivities').textContent = totalActivities;
+
+            // Completed, in-progress, and pending activities
+            const completedActivities = data.filter(item => item.status === 'completed').length;
+            const inProgressActivities = data.filter(item => item.status === 'in-progress').length;
+            const pendingActivities = data.filter(item => item.status === 'pending').length;
+
+            document.getElementById('completedActivities').textContent = completedActivities;
+            document.getElementById('inProgressActivities').textContent = inProgressActivities;
+            document.getElementById('pendingActivities').textContent = pendingActivities;
+
+            // Total employees
+            const uniqueEmployees = new Set(data.map(item => item.employee));
+            const totalEmployeesCount = uniqueEmployees.size;
+            document.getElementById('totalEmployees').textContent = totalEmployeesCount;
+
+            // Update categories count - this shows total categories from all data
+            const categoriesCount = Object.keys(categoryData).length;
+            document.getElementById('totalCategories').textContent = categoriesCount;
+            document.getElementById('planStatus').textContent = categoriesCount > 0 ? `${categoriesCount} kategori` : 'Tidak ada kategori';
+
+            // Update today's tracking (always use full data)
+            updateTodayStatus();
+        }
+
+        // Initialize charts
+        function initializeCharts() {
+            try {
+                // Check if Chart is available
+                if (typeof Chart === 'undefined') {
+                    console.warn('Chart.js is not loaded, skipping chart initialization');
+                    return;
+                }
+
+                // Category chart only (sparkline was removed)
+                const categoryCanvas = document.getElementById('categoryChart');
+                if (!categoryCanvas) {
+                    console.warn('Category chart canvas not found, skipping chart initialization');
+                    return;
+                }
+
+                const ctx = categoryCanvas.getContext('2d');
+                if (!ctx) {
+                    console.warn('Could not get 2D context from category chart canvas');
+                    return;
+                }
+
+                categoryChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Jumlah Kegiatan',
+                            data: [],
+                            backgroundColor: [
+                                'rgba(255, 107, 107, 0.7)',
+                                'rgba(255, 142, 142, 0.7)',
+                                'rgba(255, 180, 180, 0.7)',
+                                'rgba(255, 198, 229, 0.7)',
+                                'rgba(255, 180, 213, 0.7)',
+                                'rgba(255, 142, 165, 0.7)',
+                                'rgba(255, 107, 142, 0.7)',
+                                'rgba(255, 71, 107, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 107, 107, 1)',
+                                'rgba(255, 142, 142, 1)',
+                                'rgba(255, 180, 180, 1)',
+                                'rgba(255, 198, 229, 1)',
+                                'rgba(255, 180, 213, 1)',
+                                'rgba(255, 142, 165, 1)',
+                                'rgba(255, 107, 142, 1)',
+                                'rgba(255, 71, 107, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.05)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing charts:', error);
+                // Don't throw the error, just log it
+                categoryChart = null;
+            }
+        }
+
+  
+        // Update category list in sidebar
+        function updateCategoryList() {
+            categoryList.innerHTML = '';
+            
+            // Add "All Categories" option
+            const allItem = document.createElement('li');
+            allItem.className = 'category-item';
+            allItem.innerHTML = `
+                <a href="#" class="category-link flex items-center justify-between p-2 rounded-md hover:bg-gray-800 transition-colors active" data-category="all">
+                    <div class="flex items-center">
+                        <i class="fas fa-th-large mr-3 text-gray-400"></i>
+                        <span>Semua Kategori</span>
+                    </div>
+                    <span class="bg-gray-700 text-xs px-2 py-1 rounded-full">${employeeData.length}</span>
+                </a>
+            `;
+            categoryList.appendChild(allItem);
+            
+            // Add each category
+            Object.keys(categoryData).forEach(key => {
+                const category = categoryData[key];
+                const item = document.createElement('li');
+                item.className = 'category-item';
+                item.innerHTML = `
+                    <a href="#" class="category-link flex items-center justify-between p-2 rounded-md hover:bg-gray-800 transition-colors" data-category="${category.name}">
+                        <div class="flex items-center">
+                            <i class="fas fa-folder mr-3 text-gray-400"></i>
+                            <span>${category.name}</span>
+                        </div>
+                        <span class="bg-gray-700 text-xs px-2 py-1 rounded-full">${category.count}</span>
+                    </a>
+                `;
+                categoryList.appendChild(item);
+            });
+            
+            // Add click event listeners to category links
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active', 'bg-gray-800'));
+                    this.classList.add('active', 'bg-gray-800');
+                    
+                    // Filter data by category
+                    const category = this.dataset.category;
+                    filterByCategory(category);
+                });
+            });
+        }
+
+        // Update category chart
+        function updateCategoryChart(type) {
+            updateCategoryChartWithData(categoryData, type);
+        }
+
+        // Update category chart with specific data
+        function updateCategoryChartWithData(data, type = 'bar') {
+            // Safety check if chart is not available
+            if (!categoryChart) {
+                console.warn('Chart is not available, skipping update');
+                return;
+            }
+
+            const labels = Object.keys(data).map(key => data[key].name);
+            const chartData = Object.keys(data).map(key => data[key].count);
+
+            categoryChart.config.type = type;
+            categoryChart.data.labels = labels;
+            categoryChart.data.datasets[0].data = chartData;
+
+            // Adjust options based on chart type
+            if (type === 'pie') {
+                categoryChart.options.scales.x.display = false;
+                categoryChart.options.scales.y.display = false;
+                categoryChart.options.plugins.legend.display = true;
+            } else {
+                categoryChart.options.scales.x.display = true;
+                categoryChart.options.scales.y.display = true;
+                categoryChart.options.plugins.legend.display = false;
+            }
+
+            categoryChart.update();
+        }
+
+        // Update table with employee data
+        function updateTable(data = null) {
+            const tableData = data || employeeData;
+
+            // Store data for pagination
+            paginatedData = tableData;
+
+            // Calculate pagination
+            const totalRecordsCount = paginatedData.length;
+            const totalPages = Math.ceil(totalRecordsCount / recordsPerPage);
+
+            // Ensure current page is valid
+            if (currentPage > totalPages && totalPages > 0) {
+                currentPage = totalPages;
+            }
+
+            // Get data for current page
+            const startIndex = (currentPage - 1) * recordsPerPage;
+            const endIndex = Math.min(startIndex + recordsPerPage, totalRecordsCount);
+            const currentPageData = paginatedData.slice(startIndex, endIndex);
+
+            // Clear existing rows
+            employeeTableBody.innerHTML = '';
+
+            // Add rows for current page
+            currentPageData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+                
+                // Format dates
+                const startDate = formatDate(item.startDate);
+                const endDate = formatDate(item.endDate);
+                const period = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
+                
+                // Status badge
+                let statusBadge = '';
+                if (item.status === 'completed') {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Selesai</span>';
+                } else if (item.status === 'in-progress') {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Berlangsung</span>';
+                } else {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800">Menunggu</span>';
+                }
+                
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${item.employee}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">${item.planCategory}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-900">${item.activity}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">${period}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${statusBadge}
+                    </td>
+                `;
+                
+                employeeTableBody.appendChild(row);
+            });
+
+            // Update pagination controls
+            updatePaginationControls(startIndex + 1, endIndex, totalRecordsCount, totalPages);
+        }
+
+        // Pagination functions
+        function updatePaginationControls(start, end, total, totalPages) {
+            // Update record count
+            startRecord.textContent = total > 0 ? start : 0;
+            endRecord.textContent = end;
+            totalRecords.textContent = total;
+
+            // Generate page numbers
+            pageNumbers.innerHTML = '';
+
+            if (totalPages <= 1) {
+                // Hide pagination if only one page
+                prevPage.disabled = true;
+                nextPage.disabled = true;
+                prevPageMobile.disabled = true;
+                nextPageMobile.disabled = true;
+                return;
+            }
+
+            // Enable/disable pagination buttons
+            prevPage.disabled = currentPage === 1;
+            nextPage.disabled = currentPage === totalPages;
+            prevPageMobile.disabled = currentPage === 1;
+            nextPageMobile.disabled = currentPage === totalPages;
+
+            // Generate page number buttons
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            // Adjust start page if we're near the end
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            // Add first page and ellipsis if needed
+            if (startPage > 1) {
+                addPageButton(1);
+                if (startPage > 2) {
+                    addEllipsis();
+                }
+            }
+
+            // Add page numbers
+            for (let i = startPage; i <= endPage; i++) {
+                addPageButton(i);
+            }
+
+            // Add ellipsis and last page if needed
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    addEllipsis();
+                }
+                addPageButton(totalPages);
+            }
+        }
+
+        function addPageButton(pageNum) {
+            const button = document.createElement('button');
+            button.textContent = pageNum;
+            button.className = `relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                pageNum === currentPage
+                    ? 'z-10 bg-primary border-primary text-white'
+                    : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+            }`;
+            button.addEventListener('click', () => changePage(pageNum));
+            pageNumbers.appendChild(button);
+        }
+
+        function addEllipsis() {
+            const ellipsis = document.createElement('span');
+            ellipsis.className = 'relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700';
+            ellipsis.textContent = '...';
+            pageNumbers.appendChild(ellipsis);
+        }
+
+        function changePage(newPage) {
+            const totalPages = Math.ceil(paginatedData.length / recordsPerPage);
+
+            if (newPage < 1 || newPage > totalPages) {
+                return;
+            }
+
+            currentPage = newPage;
+
+            // Get data for current page
+            const startIndex = (currentPage - 1) * recordsPerPage;
+            const endIndex = Math.min(startIndex + recordsPerPage, paginatedData.length);
+            const currentPageData = paginatedData.slice(startIndex, endIndex);
+
+            // Clear and repopulate table
+            employeeTableBody.innerHTML = '';
+
+            currentPageData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+
+                // Format dates
+                const startDate = formatDate(item.startDate);
+                const endDate = formatDate(item.endDate);
+                const period = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
+
+                // Status badge
+                let statusBadge = '';
+                if (item.status === 'completed') {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Selesai</span>';
+                } else if (item.status === 'in-progress') {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">Berlangsung</span>';
+                } else {
+                    statusBadge = '<span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800">Menunggu</span>';
+                }
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${item.employee}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">${item.planCategory}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-gray-900">${item.activity}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">${period}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${statusBadge}
+                    </td>
+                `;
+
+                employeeTableBody.appendChild(row);
+            });
+
+            // Update pagination controls
+            updatePaginationControls(startIndex + 1, endIndex, paginatedData.length, totalPages);
+
+            // Scroll to top of table
+            document.getElementById('tableSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Format date to readable string
+        function formatDate(date) {
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return new Date(date).toLocaleDateString('id-ID', options);
+        }
+
+        // Set filter (all, week, month)
+        function setFilter(filter) {
+            // Update active state
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+            });
+            
+            if (filter === 'all') {
+                allFilter.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                allFilter.classList.add('bg-primary', 'text-white');
+            } else if (filter === 'week') {
+                weekFilter.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                weekFilter.classList.add('bg-primary', 'text-white');
+            } else if (filter === 'month') {
+                monthFilter.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                monthFilter.classList.add('bg-primary', 'text-white');
+            }
+            
+            currentFilter = filter;
+            
+            // Apply filter
+            applyTimeFilter(filter);
+        }
+
+        // Apply time-based filter
+        function applyTimeFilter(filter) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            let startDate;
+            
+            if (filter === 'week') {
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 7);
+            } else if (filter === 'month') {
+                startDate = new Date(today);
+                startDate.setMonth(today.getMonth() - 1);
+            } else {
+                // All data
+                updateTable();
+                return;
+            }
+            
+            // Filter data
+            const filteredData = employeeData.filter(item => {
+                const itemDate = new Date(item.startDate);
+                return itemDate >= startDate;
+            });
+            
+            updateTable(filteredData);
+            
+            // Show toast
+            showToast(`Filter ${filter === 'week' ? 'minggu' : 'bulan'} ini diterapkan`, 'info');
+        }
+
+        
+        // Filter table by search term (works with active filters)
+        function filterTable() {
+            const searchTerm = employeeSearch.value.toLowerCase();
+
+            // Start with current filtered data or all data
+            const baseData = filteredData.length > 0 ? [...filteredData] : [...employeeData];
+
+            if (!searchTerm) {
+                // If no search term, show current filtered data
+                updateTable(baseData);
+                updateMetricsWithData(baseData);
+
+                // Update chart based on current state
+                if (filteredData.length > 0 || activeFilters.category !== 'all' || activeFilters.dateRange) {
+                    // Use current chart state
+                    return;
+                } else {
+                    updateCategoryChart(currentChartType);
+                }
+                return;
+            }
+
+            // Apply search filter to base data
+            const searchData = baseData.filter(item => {
+                return (
+                    item.employee.toLowerCase().includes(searchTerm) ||
+                    item.planCategory.toLowerCase().includes(searchTerm) ||
+                    item.activity.toLowerCase().includes(searchTerm)
+                );
+            });
+
+            updateTable(searchData);
+            updateMetricsWithData(searchData);
+
+            // Update chart to show only categories from search results
+            const filteredCategories = {};
+            searchData.forEach(item => {
+                const category = item.planCategory;
+                if (!filteredCategories[category] && categoryData[category]) {
+                    filteredCategories[category] = categoryData[category];
+                }
+            });
+            updateCategoryChartWithData(filteredCategories, currentChartType);
+        }
+
+        // Filter by category (updated for multiple filters)
+        function filterByCategory(category) {
+            // Update active filters
+            activeFilters.category = category;
+
+            // Apply all filters (combination of category + date range)
+            applyAllFilters();
+
+            // Show toast notification
+            const categoryName = category === 'all' ? 'Semua Kategori' : category;
+            showToast(`Filter kategori: ${categoryName}`, 'info');
+        }
+
+        // Sort table (works with filtered data)
+        function sortTable(column) {
+            // Use filtered data if available, otherwise use all data
+            const dataToSort = filteredData.length > 0 ? [...filteredData] : [...employeeData];
+
+            // Update sort order
+            if (column === 'date') {
+                sortOrder.date = sortOrder.date === 'asc' ? 'desc' : 'asc';
+            } else if (column === 'employee') {
+                sortOrder.employee = sortOrder.employee === 'asc' ? 'desc' : 'asc';
+            }
+
+            // Update sort icons
+            updateSortIcons(column);
+
+            // Sort data
+            const sortedData = dataToSort.sort((a, b) => {
+                if (column === 'date') {
+                    const dateA = new Date(a.endDate);
+                    const dateB = new Date(b.endDate);
+                    return sortOrder.date === 'asc' ? dateA - dateB : dateB - dateA;
+                } else if (column === 'employee') {
+                    return sortOrder.employee === 'asc'
+                        ? a.employee.localeCompare(b.employee)
+                        : b.employee.localeCompare(a.employee);
+                }
+                return 0;
+            });
+
+            // Update table with sorted data (but don't update filteredData)
+            updateTable(sortedData);
+        }
+
+        // Update sort icons
+        function updateSortIcons(activeColumn) {
+            // Reset all sort icons
+            document.querySelectorAll('#sortEmployee i, #sortDate i').forEach(icon => {
+                icon.className = 'fas fa-sort text-gray-400 ml-1';
+            });
+            
+            // Update active column icon
+            if (activeColumn === 'date') {
+                const icon = sortDate.querySelector('i');
+                icon.className = sortOrder.date === 'asc' 
+                    ? 'fas fa-sort-up text-primary ml-1'
+                    : 'fas fa-sort-down text-primary ml-1';
+            } else if (activeColumn === 'employee') {
+                const icon = sortEmployee.querySelector('i');
+                icon.className = sortOrder.employee === 'asc' 
+                    ? 'fas fa-sort-up text-primary ml-1'
+                    : 'fas fa-sort-down text-primary ml-1';
+            }
+        }
+
+        // Refresh data
+        function refreshData() {
+            // Show loading
+            tableLoading.style.display = 'flex';
+            employeeTableBody.style.display = 'none';
+            
+            // Simulate API call with timeout
+            setTimeout(() => {
+                // In a real implementation, this would fetch fresh data from Google Sheets API
+                loadEmployeeData();
+            }, 1000);
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            toastMessage.textContent = message;
+
+            // Update icon and class based on type
+            toast.className = 'fixed bottom-4 right-4 bg-neutral-dark text-white px-4 py-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50 flex items-center pointer-events-none';
+
+            if (type === 'success') {
+                toastIcon.className = 'fas fa-check-circle mr-2 text-green-400';
+            } else if (type === 'error') {
+                toastIcon.className = 'fas fa-exclamation-circle mr-2 text-red-400';
+            } else if (type === 'info') {
+                toastIcon.className = 'fas fa-info-circle mr-2 text-blue-400';
+            }
+
+            // Fade in toast
+            setTimeout(() => {
+                toast.classList.remove('opacity-0');
+                toast.classList.add('opacity-100');
+            }, 100);
+
+            // Fade out after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Date Filter Functions
+        function applyDateFilterDirectly() {
+            const startDateValue = startDateInput.value;
+            const endDateValue = endDateInput.value;
+
+            if (!startDateValue && !endDateValue) {
+                showToast('Silakan pilih tanggal awal atau tanggal akhir', 'error');
+                return;
+            }
+
+            let startDate = null;
+            let endDate = null;
+
+            if (startDateValue) {
+                startDate = new Date(startDateValue);
+            }
+
+            if (endDateValue) {
+                endDate = new Date(endDateValue);
+            }
+
+            // If only one date is provided, use it as both start and end
+            if (startDate && !endDate) {
+                endDate = new Date(startDate);
+            } else if (!startDate && endDate) {
+                startDate = new Date(endDate);
+            }
+
+            // Validate date range
+            if (startDate > endDate) {
+                showToast('Tanggal awal tidak boleh setelah tanggal akhir', 'error');
+                return;
+            }
+
+            // Store date range in active filters
+            activeFilters.dateRange = { start: startDate, end: endDate };
+
+            // Reset to first page when applying new filter
+            currentPage = 1;
+
+            applyAllFilters();
+
+            const startDateStr = formatDate(startDate);
+            const endDateStr = formatDate(endDate);
+            const rangeText = startDateStr === endDateStr ? startDateStr : `${startDateStr} - ${endDateStr}`;
+
+            showToast(`Filter tanggal diterapkan: ${rangeText}`, 'success');
+        }
+
+        function clearAllActiveFilters() {
+            activeFilters.category = 'all';
+            activeFilters.dateRange = null;
+
+            // Reset UI
+            startDateInput.value = '';
+            endDateInput.value = '';
+
+            // Reset category selection
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.remove('active', 'bg-gray-800');
+            });
+            document.querySelector('.category-link[data-category="all"]').classList.add('active', 'bg-gray-800');
+
+            // Reset to first page
+            currentPage = 1;
+
+            applyAllFilters();
+            showToast('Semua filter direset', 'info');
+        }
+
+        function applyAllFilters() {
+            // Start with all data
+            let dataToFilter = [...employeeData];
+
+            // Apply category filter
+            if (activeFilters.category !== 'all') {
+                dataToFilter = dataToFilter.filter(item => item.planCategory === activeFilters.category);
+            }
+
+            // Apply date range filter
+            if (activeFilters.dateRange) {
+                dataToFilter = dataToFilter.filter(item => {
+                    const itemStartDate = new Date(item.startDate);
+                    const itemEndDate = new Date(item.endDate);
+
+                    // Check if item's date range overlaps with filter's date range
+                    return (itemStartDate <= activeFilters.dateRange.end && itemEndDate >= activeFilters.dateRange.start);
+                });
+            }
+
+            // Store filtered data globally
+            filteredData = dataToFilter;
+
+            // Reset to first page when applying filters
+            currentPage = 1;
+
+            // Update all components with filtered data
+            updateMetricsWithData(filteredData);
+            updateTable(filteredData);
+
+            // Update chart based on filtered data
+            if (activeFilters.category !== 'all') {
+                const filteredCategoryData = {};
+                if (categoryData[activeFilters.category]) {
+                    filteredCategoryData[activeFilters.category] = categoryData[activeFilters.category];
+                }
+                updateCategoryChartWithData(filteredCategoryData, currentChartType);
+            } else {
+                // Show only categories from filtered data
+                const filteredCategories = {};
+                filteredData.forEach(item => {
+                    const category = item.planCategory;
+                    if (!filteredCategories[category] && categoryData[category]) {
+                        filteredCategories[category] = categoryData[category];
+                    }
+                });
+                updateCategoryChartWithData(filteredCategories, currentChartType);
+            }
+        }
+
+        // Get all employees from the data
+        function getAllEmployees() {
+            return [
+                "Yulia Tri Mardani S.Si, MA.",
+                "Afriani Mahardika SST",
+                "Muhammad Nuh",
+                "Jumiarti S.Pi",
+                "Mardhia Ulfa A.Md",
+                "Raja Calvina Izumi A.Md.Kb.N.",
+                "Fitri Yadi",
+                "Sudarmanto",
+                "Decky Franoza Patria",
+                "Alfian Rizky Al Majid S.Tr.Stat",
+                "Sugiono S.E.",
+                "Purwo Astono SST",
+                "Iman Rahadiansyah S.Si",
+                "Lita Rosyada SST",
+                "Siti Larasati S.Tr.Stat.",
+                "Dian Fitriana Arthati SST",
+                "Christian Putra Ginting SST",
+                "Dewi Sartika Sari SST",
+                "Rizka Novalina SST",
+                "Arlita Gariana S.Tr.Stat.",
+                "Deasy Dirgantari S.Tr.Stat",
+                "Asa Alfan Nahandi S.Tr.Stat.",
+                "Gabriel Muhammad Zhafran S.Tr.Stat.",
+                "Vina Astriani S.Tr.Stat.",
+                "Mewa Azmininovia A.Md.Stat",
+                "Nurul Wahida A.Md.Stat",
+                "Ardini A.Md.Stat.",
+                "Albert Assidiq S.Tr.Stat."
+            ];
+        }
+
+        // Update today's status tracking
+        function updateTodayStatus() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Set today's date display
+            const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+            todayDate.textContent = today.toLocaleDateString('id-ID', options);
+
+            // Get activities for today
+            const todayActivities = employeeData.filter(item => {
+                const itemDate = new Date(item.startDate);
+                itemDate.setHours(0, 0, 0, 0);
+                return itemDate.getTime() === today.getTime();
+            });
+
+            // Get employees with activities today
+            const employeesWithActivitiesToday = new Set(todayActivities.map(item => item.employee));
+
+            // Get all employees
+            const allEmployees = getAllEmployees();
+            const employeesWithoutActivitiesToday = allEmployees.filter(emp => !employeesWithActivitiesToday.has(emp));
+
+            // Update counts
+            todayCompleted.textContent = employeesWithActivitiesToday.size;
+            todayPending.textContent = employeesWithoutActivitiesToday.length;
+
+            // Update pending employees list
+            updatePendingEmployeesList(employeesWithoutActivitiesToday);
+        }
+
+        // Update pending employees list
+        function updatePendingEmployeesList(employees) {
+            pendingEmployeesList.innerHTML = '';
+
+            if (employees.length === 0) {
+                pendingEmployeesList.innerHTML = `
+                    <div class="text-sm text-green-600 font-medium">
+                        <i class="fas fa-check-circle mr-1"></i>Semua karyawan sudah input rencana hari ini
+                    </div>
+                `;
+                return;
+            }
+
+            // Show up to 8 employees, with "and X more" if there are more
+            const displayEmployees = employees.slice(0, 8);
+            const remainingCount = employees.length - displayEmployees.length;
+
+            displayEmployees.forEach(employee => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center text-sm p-2 bg-gray-50 rounded';
+                item.innerHTML = `
+                    <i class="fas fa-user-circle text-gray-400 mr-2"></i>
+                    <span class="text-gray-700">${employee}</span>
+                `;
+                pendingEmployeesList.appendChild(item);
+            });
+
+            if (remainingCount > 0) {
+                const moreItem = document.createElement('div');
+                moreItem.className = 'text-sm text-gray-500 text-center p-2 italic';
+                moreItem.textContent = `Dan ${remainingCount} karyawan lainnya...`;
+                pendingEmployeesList.appendChild(moreItem);
+            }
+        }
+
+  
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            // Update month display
+            const monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                              'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            currentMonth.textContent = `${monthNames[month]} ${year}`;
+
+            // Clear calendar grid
+            calendarGrid.innerHTML = '';
+
+            // Get first day of month and number of days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            // Add empty cells for days before month starts
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'h-16 bg-gray-50 rounded';
+                calendarGrid.appendChild(emptyCell);
+            }
+
+            // Get all employees
+            const allEmployees = getAllEmployees();
+
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDateObj = new Date(year, month, day);
+                const cellDate = new Date(year, month, day);
+                cellDate.setHours(0, 0, 0, 0);
+
+                // Check which employees have work plans on this date
+                const employeesWithPlans = [];
+
+                employeeData.forEach(item => {
+                    const startDate = new Date(item.startDate);
+                    startDate.setHours(0, 0, 0, 0);
+                    const endDate = new Date(item.endDate);
+                    endDate.setHours(0, 0, 0, 0);
+
+                    // Check if current date is within the plan range
+                    if (cellDate >= startDate && cellDate <= endDate) {
+                        if (!employeesWithPlans.includes(item.employee)) {
+                            employeesWithPlans.push(item.employee);
+                        }
+                    }
+                });
+
+                const cell = document.createElement('div');
+                cell.className = 'h-16 border rounded p-1 cursor-pointer transition-colors hover:bg-gray-50';
+
+                // Check if this is today
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const isToday = cellDate.getTime() === today.getTime();
+
+                if (isToday) {
+                    cell.className += ' ring-2 ring-primary';
+                }
+
+                // Color based on whether employees have plans
+                if (employeesWithPlans.length > 0) {
+                    cell.className += ' bg-green-50 border-green-200';
+                } else {
+                    cell.className += ' bg-red-50 border-red-200';
+                }
+
+                cell.innerHTML = `
+                    <div class="text-xs font-medium ${isToday ? 'text-primary' : 'text-gray-900'}">${day}</div>
+                    <div class="text-xs mt-1">
+                        <div class="text-green-600">✓ ${employeesWithPlans.length}</div>
+                        <div class="text-red-600">✗ ${allEmployees.length - employeesWithPlans.length}</div>
+                    </div>
+                `;
+
+                // Add click event to show details
+                cell.addEventListener('click', () => showDayDetails(year, month, day, employeesWithPlans));
+
+                calendarGrid.appendChild(cell);
+            }
+        }
+
+        function navigatePrevMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+
+        function navigateNextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        function showDayDetails(year, month, day, employeesWithPlans) {
+            const allEmployees = getAllEmployees();
+            const employeesWithoutPlans = allEmployees.filter(emp => !employeesWithPlans.includes(emp));
+
+            const date = new Date(year, month, day);
+            const dateStr = date.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+            // Update the selected date details section
+            selectedDateText.textContent = dateStr;
+            withPlanCount.textContent = employeesWithPlans.length;
+            withoutPlanCount.textContent = employeesWithoutPlans.length;
+
+            // Populate employees with plans
+            employeesWithPlan.innerHTML = '';
+            if (employeesWithPlans.length > 0) {
+                employeesWithPlans.forEach(emp => {
+                    const item = document.createElement('div');
+                    item.className = 'flex items-center text-sm p-2 bg-green-50 rounded border border-green-200';
+                    item.innerHTML = `
+                        <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                        <span class="text-gray-800">${emp}</span>
+                    `;
+                    employeesWithPlan.appendChild(item);
+                });
+            } else {
+                employeesWithPlan.innerHTML = `
+                    <div class="text-sm text-gray-500 italic p-2">Tidak ada karyawan dengan rencana kerja</div>
+                `;
+            }
+
+            // Populate employees without plans
+            employeesWithoutPlan.innerHTML = '';
+            if (employeesWithoutPlans.length > 0) {
+                employeesWithoutPlans.forEach(emp => {
+                    const item = document.createElement('div');
+                    item.className = 'flex items-center text-sm p-2 bg-red-50 rounded border border-red-200';
+                    item.innerHTML = `
+                        <i class="fas fa-times-circle text-red-600 mr-2"></i>
+                        <span class="text-gray-800">${emp}</span>
+                    `;
+                    employeesWithoutPlan.appendChild(item);
+                });
+            } else {
+                employeesWithoutPlan.innerHTML = `
+                    <div class="text-sm text-gray-500 italic p-2">Semua karyawan sudah membuat rencana kerja</div>
+                `;
+            }
+
+            // Show the details section
+            selectedDateDetails.style.display = 'block';
+        }
+
+        function hideDateDetails() {
+            selectedDateDetails.style.display = 'none';
+        }
+
+        // TAB SWITCHING FUNCTIONALITY
+        function setupTabSwitching() {
+            const tabDashboard = document.getElementById('tabDashboard');
+            const tabPerorangan = document.getElementById('tabPerorangan');
+            const dashboardSection = document.getElementById('dashboardSection');
+            const peroranganContent = document.getElementById('peroranganContent');
+
+            // Tab switching event listeners
+            if (tabDashboard) tabDashboard.addEventListener('click', () => switchTab('dashboard'));
+            if (tabPerorangan) tabPerorangan.addEventListener('click', () => switchTab('perorangan'));
+        }
+
+        function setInitialTabState() {
+            // Set Dashboard as active, others as inactive on page load
+            const tabDashboard = document.getElementById('tabDashboard');
+            const tabPerorangan = document.getElementById('tabPerorangan');
+            const calendarView = document.getElementById('calendarView');
+
+            const inactiveClass = 'tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-gray-200 text-gray-700';
+            const activeClass = 'tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white';
+
+            // Set initial tab states
+            if (tabDashboard) tabDashboard.className = activeClass; // Dashboard active
+            if (tabPerorangan) tabPerorangan.className = inactiveClass; // Perorangan inactive
+            if (calendarView) calendarView.className = inactiveClass; // Calendar inactive
+
+            // Ensure dashboard content is shown and others are hidden
+            const dashboardSection = document.getElementById('dashboardSection');
+            const peroranganContent = document.getElementById('peroranganContent');
+            const calendarSection = document.getElementById('calendarSection');
+            const metricsCards = document.getElementById('metricsCards');
+            const statusSection = document.getElementById('statusSection');
+            const chartsSection = document.getElementById('chartsSection');
+            const tableSection = document.getElementById('tableSection');
+
+            if (dashboardSection) dashboardSection.style.display = 'block';
+            if (peroranganContent) peroranganContent.style.display = 'none';
+            if (calendarSection) calendarSection.style.display = 'none';
+
+            if (metricsCards) metricsCards.style.display = 'grid';
+            if (statusSection) statusSection.style.display = 'block';
+            if (chartsSection) chartsSection.style.display = 'block';
+            if (tableSection) tableSection.style.display = 'block';
+        }
+
+        function switchTab(tab) {
+            // Get elements dynamically to ensure they exist
+            const tabDashboard = document.getElementById('tabDashboard');
+            const tabPerorangan = document.getElementById('tabPerorangan');
+            const calendarView = document.getElementById('calendarView');
+            const dashboardSection = document.getElementById('dashboardSection');
+            const peroranganContent = document.getElementById('peroranganContent');
+
+            // Reset all tabs to inactive state first
+            const inactiveClass = 'tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-gray-200 text-gray-700';
+            const activeClass = 'tab-button px-3 py-1.5 rounded-md text-sm font-medium bg-primary text-white';
+
+            if (tabDashboard) tabDashboard.className = inactiveClass;
+            if (tabPerorangan) tabPerorangan.className = inactiveClass;
+            if (calendarView) calendarView.className = inactiveClass;
+
+            if (tab === 'dashboard') {
+                // Show dashboard content, hide perorangan and calendar
+                if (dashboardSection) dashboardSection.style.display = 'block';
+                if (peroranganContent) peroranganContent.style.display = 'none';
+                hideDateDetails(); // Hide calendar details
+
+                // Show all dashboard elements and hide calendar
+                const calendarSection = document.getElementById('calendarSection');
+                const metricsCards = document.getElementById('metricsCards');
+                const statusSection = document.getElementById('statusSection');
+                const chartsSection = document.getElementById('chartsSection');
+                const tableSection = document.getElementById('tableSection');
+
+                if (calendarSection) calendarSection.style.display = 'none';
+                if (metricsCards) metricsCards.style.display = 'grid';
+                if (statusSection) statusSection.style.display = 'block';
+                if (chartsSection) chartsSection.style.display = 'block';
+                if (tableSection) tableSection.style.display = 'block';
+
+                // Update tab colors - dashboard active
+                if (tabDashboard) tabDashboard.className = activeClass;
+
+            } else if (tab === 'perorangan') {
+                // Show perorangan, hide others
+                if (dashboardSection) dashboardSection.style.display = 'none';
+                if (peroranganContent) peroranganContent.style.display = 'block';
+                hideDateDetails(); // Hide calendar view
+
+                // Update tab colors - perorangan active
+                if (tabPerorangan) tabPerorangan.className = activeClass;
+
+                // Initialize perorangan functionality
+                initializePerorangan();
+
+            } else if (tab === 'calendar') {
+                // Show dashboard with calendar only, hide perorangan
+                if (dashboardSection) dashboardSection.style.display = 'block';
+                if (peroranganContent) peroranganContent.style.display = 'none';
+
+                // Show calendar section and hide other dashboard elements
+                const calendarSection = document.getElementById('calendarSection');
+                const metricsCards = document.getElementById('metricsCards');
+                const statusSection = document.getElementById('statusSection');
+                const chartsSection = document.getElementById('chartsSection');
+                const tableSection = document.getElementById('tableSection');
+
+                if (calendarSection) calendarSection.style.display = 'block';
+                if (metricsCards) metricsCards.style.display = 'none';
+                if (statusSection) statusSection.style.display = 'none';
+                if (chartsSection) chartsSection.style.display = 'none';
+                if (tableSection) tableSection.style.display = 'none';
+
+                // Update tab colors - calendar active
+                if (calendarView) calendarView.className = activeClass;
+
+                // Render calendar
+                renderCalendar();
+            }
+        }
+
+        // PERORANGAN FUNCTIONALITY
+        let peroranganData = [];
+        let uniqueEmployees = [];
+
+        function initializePerorangan() {
+            // Extract unique employees from data
+            uniqueEmployees = [...new Set(employeeData.map(item => item.employee))];
+
+            // Initialize employee search functionality
+            setupEmployeeSearch();
+
+            // Set current month as default - with null check
+            const today = new Date();
+            const monthFilterElement = document.getElementById('monthFilter');
+            if (monthFilterElement) {
+                monthFilterElement.value = today.toISOString().slice(0, 7);
+            }
+
+            // Set first employee as default selection
+            if (uniqueEmployees.length > 0) {
+                const employeeFilterElement = document.getElementById('employeeFilter');
+                if (employeeFilterElement) {
+                    employeeFilterElement.value = uniqueEmployees[0];
+                }
+            }
+
+            // Generate calendar for current month and first employee
+            const selectedEmployee = uniqueEmployees[0] || '';
+            const selectedMonth = monthFilterElement ? monthFilterElement.value : today.toISOString().slice(0, 7);
+
+            if (selectedEmployee) {
+                generatePeroranganCalendar(selectedEmployee, selectedMonth);
+            }
+        }
+
+        function populateEmployeeDropdown() {
+            const employeeFilter = document.getElementById('employeeFilter');
+            if (employeeFilter) {
+                employeeFilter.innerHTML = '';
+
+                uniqueEmployees.forEach(employee => {
+                    const option = document.createElement('option');
+                    option.value = employee;
+                    option.textContent = employee;
+                    employeeFilter.appendChild(option);
+                });
+            }
+        }
+
+        // SIMPLE EMPLOYEE SEARCH
+        let employeeList = [];
+
+        function setupEmployeeSearch() {
+            const searchInput = document.getElementById('employeeSearchInput');
+            const dropdown = document.getElementById('employeeDropdown');
+            const hiddenFilter = document.getElementById('employeeFilter');
+
+            if (!searchInput || !dropdown || !hiddenFilter) {
+                console.log('Waiting for employee search elements...');
+                setTimeout(setupEmployeeSearch, 500);
+                return;
+            }
+
+            // Get employee list
+            employeeList = [...new Set(employeeData.map(item => item.employee))].sort();
+            console.log('Employees loaded:', employeeList.length);
+
+            // Focus event - show all employees
+            searchInput.addEventListener('focus', function() {
+                showAllEmployees();
+            });
+
+            // Input event - filter employees
+            searchInput.addEventListener('input', function() {
+                filterEmployees(this.value);
+            });
+
+            // Click outside to hide
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#employeeSearchInput') && !e.target.closest('#employeeDropdown')) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        function showAllEmployees() {
+            const dropdown = document.getElementById('employeeDropdown');
+            let html = employeeList.map(emp =>
+                `<div class="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm" onclick="selectEmployee('${emp}')">${emp}</div>`
+            ).join('');
+            dropdown.innerHTML = html;
+            dropdown.classList.remove('hidden');
+        }
+
+        function filterEmployees(searchTerm) {
+            const dropdown = document.getElementById('employeeDropdown');
+            const filtered = employeeList.filter(emp =>
+                emp.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                dropdown.innerHTML = '<div class="px-3 py-2 text-sm text-gray-500">Tidak ada hasil</div>';
+            } else {
+                let html = filtered.map(emp =>
+                    `<div class="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm" onclick="selectEmployee('${emp}')">${emp}</div>`
+                ).join('');
+                dropdown.innerHTML = html;
+            }
+            dropdown.classList.remove('hidden');
+        }
+
+        function selectEmployee(employee) {
+            const searchInput = document.getElementById('employeeSearchInput');
+            const dropdown = document.getElementById('employeeDropdown');
+            const hiddenFilter = document.getElementById('employeeFilter');
+
+            searchInput.value = employee;
+            hiddenFilter.value = employee;
+            dropdown.classList.add('hidden');
+
+            // Apply filters
+            applyPeroranganFilters();
+        }
+
+        // Event listeners for perorangan filters
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthFilter = document.getElementById('monthFilter');
+
+            if (monthFilter) monthFilter.addEventListener('change', applyPeroranganFilters);
+        });
+
+        function applyPeroranganFilters() {
+            const selectedEmployee = document.getElementById('employeeFilter').value;
+            const selectedMonth = document.getElementById('monthFilter').value;
+
+            if (selectedEmployee && selectedMonth) {
+                generatePeroranganCalendar(selectedEmployee, selectedMonth);
+            }
+        }
+
+        
+        function generatePeroranganCalendar(employee, monthYear) {
+            const [year, month] = monthYear.split('-').map(Number);
+            const firstDay = new Date(year, month - 1, 1);
+            const lastDay = new Date(year, month, 0);
+            const daysInMonth = lastDay.getDate();
+            const startDayOfWeek = firstDay.getDay();
+
+            // Filter data for selected employee and month
+            peroranganData = employeeData.filter(item => {
+                return item.employee === employee;
+            });
+
+            const monthlyActivities = {};
+            peroranganData.forEach(item => {
+                const startDate = new Date(item.startDate);
+                const endDate = new Date(item.endDate);
+
+                // Check if activity falls within the selected month
+                if ((startDate.getFullYear() === year && startDate.getMonth() === month - 1) ||
+                    (endDate.getFullYear() === year && endDate.getMonth() === month - 1) ||
+                    (startDate < new Date(year, month, 1) && endDate > new Date(year, month - 1, 0))) {
+
+                    // For each day in the activity period within the month
+                    const activityStart = new Date(Math.max(startDate, new Date(year, month - 1, 1)));
+                    const activityEnd = new Date(Math.min(endDate, new Date(year, month, 0)));
+
+                    for (let d = new Date(activityStart); d <= activityEnd; d.setDate(d.getDate() + 1)) {
+                        const dayKey = d.getDate();
+                        if (!monthlyActivities[dayKey]) {
+                            monthlyActivities[dayKey] = [];
+                        }
+                        monthlyActivities[dayKey].push(item);
+                    }
+                }
+            });
+
+            // Generate calendar HTML
+            const calendarGridPerorangan = document.getElementById('calendarGridPerorangan');
+            const activityListPerorangan = document.getElementById('activityListPerorangan');
+            const activityCount = document.getElementById('activityCount');
+
+            if (!calendarGridPerorangan) {
+                console.error('calendarGridPerorangan element not found');
+                return;
+            }
+
+  
+            let calendarHTML = '';
+
+            // Add days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const activities = monthlyActivities[day] || [];
+                const activityCountForDay = activities.length;
+
+                let cellClass = 'calendar-cell relative p-2 text-center rounded-lg cursor-pointer transition-all duration-200 ';
+
+                if (activityCountForDay === 0) {
+                    cellClass += 'bg-red-50 hover:bg-red-100 border border-red-200 text-red-800';
+                } else {
+                    cellClass += 'bg-green-50 hover:bg-green-100 border border-green-200 text-green-800';
+                }
+
+                calendarHTML += `
+                    <div class="${cellClass}" data-day="${day}" data-month="${monthYear}" data-employee="${employee}">
+                        <div class="text-sm font-medium">${day}</div>
+                        ${activityCountForDay > 0 ? `<div class="text-xs font-bold text-gray-700">${activityCountForDay}</div>` : '<div class="text-xs text-gray-500">-</div>'}
+                    </div>
+                `;
+            }
+
+            calendarGridPerorangan.innerHTML = calendarHTML;
+
+            // Add event listeners to calendar cells
+            const calendarCells = calendarGridPerorangan.querySelectorAll('.calendar-cell');
+
+            calendarCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    const day = parseInt(this.getAttribute('data-day'));
+                    const monthYear = this.getAttribute('data-month');
+                    const employee = this.getAttribute('data-employee');
+                    showPeroranganActivities(day, monthYear, employee);
+                });
+            });
+
+            // Clear activity details
+            if (activityListPerorangan) {
+                activityListPerorangan.innerHTML = '<p class="text-gray-500 text-sm">Klik pada tanggal untuk melihat detail kegiatan</p>';
+            }
+            if (activityCount) {
+                activityCount.textContent = '0';
+            }
+        }
+
+        function showPeroranganActivities(day, monthYear, employee) {
+            const [year, month] = monthYear.split('-').map(Number);
+            const selectedDate = new Date(year, month - 1, day);
+            // Set time to midnight for accurate comparison
+            selectedDate.setHours(0, 0, 0, 0);
+            const dateStr = selectedDate.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+            // Filter activities for the selected day and employee from main employeeData
+            const dayActivities = employeeData.filter(item => {
+                if (item.employee !== employee) return false;
+
+                const startDate = new Date(item.startDate);
+                startDate.setHours(0, 0, 0, 0);
+                const endDate = new Date(item.endDate);
+                endDate.setHours(0, 0, 0, 0);
+
+                return selectedDate >= startDate && selectedDate <= endDate;
+            });
+
+            const selectedDateDetailsPerorangan = document.getElementById('selectedDateDetailsPerorangan');
+            const selectedDateTextPerorangan = document.getElementById('selectedDateTextPerorangan');
+            const activityListPerorangan = document.getElementById('activityListPerorangan');
+            const activityCount = document.getElementById('activityCount');
+
+            if (!selectedDateDetailsPerorangan || !activityListPerorangan) {
+                console.error('Perorangan activity elements not found');
+                return;
+            }
+
+            // Show the details section
+            selectedDateDetailsPerorangan.style.display = 'block';
+            if (selectedDateTextPerorangan) {
+                selectedDateTextPerorangan.textContent = `${dateStr} - ${employee}`;
+            }
+
+            if (activityCount) {
+                activityCount.textContent = dayActivities.length;
+            }
+
+            if (dayActivities.length === 0) {
+                activityListPerorangan.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                        <p class="text-red-800 font-medium">Tidak ada kegiatan untuk tanggal ini</p>
+                    </div>
+                `;
+            } else {
+                let activitiesHTML = '';
+
+                dayActivities.forEach(activity => {
+                    const startDate = formatDate(activity.startDate);
+                    const endDate = formatDate(activity.endDate);
+                    const period = startDate === endDate ? startDate : `${startDate} - ${endDate}`;
+
+                    activitiesHTML += `
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="flex items-start justify-between mb-2">
+                                <h5 class="font-semibold text-gray-800">${activity.planCategory}</h5>
+                                <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">${activity.categoryId || 'RK'}</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">${activity.activity}</p>
+                            <p class="text-sm text-gray-500">📅 ${period}</p>
+                        </div>
+                    `;
+                });
+
+                activityListPerorangan.innerHTML = activitiesHTML;
+            }
+        }
+
+            </script>
+</body>
+</html>
