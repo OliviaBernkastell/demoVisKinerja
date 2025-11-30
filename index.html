@@ -2208,7 +2208,7 @@
                     (startDate < new Date(year, month, 1) && endDate > new Date(year, month - 1, 0))) {
 
                     // For each day in the activity period within the month
-                    const activityStart = new Date(Math.max(startDate, new Date(year, month - 1, 1)));
+                    const activityStart = new Date(Math.max(startDate, new Date(year, month - 1, 1));
                     const activityEnd = new Date(Math.min(endDate, new Date(year, month, 0)));
 
                     for (let d = new Date(activityStart); d <= activityEnd; d.setDate(d.getDate() + 1)) {
