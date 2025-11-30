@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+2<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -737,35 +737,47 @@
             employeeTableBody.style.display = 'none';
 
             try {
-                // Load data from JSON file using XMLHttpRequest to avoid CORS issues
+                // Google Apps Script URL - PASTE SCRIPT URL HERE
+                const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAa0Io2RgM4uT4PDFrk8F3Hot5-8RRTqriNWG6KAwlmV4_CyTmkWsIjWdExXQX9pergA/exec";
+
+                // Load data from Google Apps Script
                 const jsonData = await new Promise((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
-                    xhr.open('GET', 'mock-data.json', true);
+                    xhr.open('GET', SCRIPT_URL + '?action=getAllSheetData', true);
                     xhr.responseType = 'json';
 
                     xhr.onload = function() {
                         if (xhr.status === 200) {
-                            resolve(xhr.response);
+                            try {
+                                const response = JSON.parse(xhr.response);
+                                resolve(response);
+                            } catch (e) {
+                                reject(new Error('Invalid JSON response from Apps Script'));
+                            }
                         } else {
                             reject(new Error(`HTTP error! status: ${xhr.status}`));
                         }
                     };
 
                     xhr.onerror = function() {
-                        reject(new Error('Network error while loading mock-data.json'));
+                        reject(new Error('Network error while calling Apps Script'));
                     };
 
                     xhr.send();
                 });
 
-                // Convert date strings to Date objects and add status
+                // Convert data from Apps Script format to expected format
                 employeeData = jsonData.map((item, index) => ({
-                    ...item,
-                    id: index + 1, // Add unique ID starting from 1 (row number)
+                    id: item.id || index + 1,
+                    employee: item.employee,
+                    rencana_kinerja: item.rencana_kinerja,
+                    kegiatan: item.kegiatan,
+                    tanggal_awal: item.tanggal_awal,
+                    tanggal_akhir: item.tanggal_akhir,
                     startDate: new Date(item.tanggal_awal),
                     endDate: new Date(item.tanggal_akhir),
                     planCategory: item.rencana_kinerja,
-                    activity: item.kegiatan, // Map kegiatan field to activity
+                    activity: item.kegiatan,
                     status: determineStatus(new Date(item.tanggal_akhir), new Date(item.tanggal_awal))
                 }));
 
@@ -1994,34 +2006,74 @@
         let peroranganData = [];
         let uniqueEmployees = [];
 
-        function initializePerorangan() {
-            // Extract unique employees from data
-            uniqueEmployees = [...new Set(employeeData.map(item => item.employee))];
+        async function initializePerorangan() {
+            // Load employees from Google Apps Script
+            try {
+                const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAa0Io2RgM4uT4PDFrk8F3Hot5-8RRTqriNWG6KAwlmV4_CyTmkWsIjWdExXQX9pergA/exec";
 
-            // Initialize employee search functionality
-            setupEmployeeSearch();
+                const employees = await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', SCRIPT_URL + '?action=getEmployeeList', true);
+                    xhr.responseType = 'json';
 
-            // Set current month as default - with null check
-            const today = new Date();
-            const monthFilterElement = document.getElementById('monthFilter');
-            if (monthFilterElement) {
-                monthFilterElement.value = today.toISOString().slice(0, 7);
-            }
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            try {
+                                const response = JSON.parse(xhr.response);
+                                resolve(response);
+                            } catch (e) {
+                                reject(new Error('Invalid JSON response from Apps Script'));
+                            }
+                        } else {
+                            reject(new Error(`HTTP error! status: ${xhr.status}`));
+                        }
+                    };
 
-            // Set first employee as default selection
-            if (uniqueEmployees.length > 0) {
-                const employeeFilterElement = document.getElementById('employeeFilter');
-                if (employeeFilterElement) {
-                    employeeFilterElement.value = uniqueEmployees[0];
+                    xhr.onerror = function() {
+                        reject(new Error('Network error while calling Apps Script'));
+                    };
+
+                    xhr.send();
+                });
+
+                // Set unique employees from Apps Script response
+                uniqueEmployees = Array.isArray(employees) ? employees : [];
+
+                // Populate employee dropdown
+                populateEmployeeDropdown();
+
+                // Initialize employee search functionality
+                setupEmployeeSearch();
+
+                // Set current month as default - with null check
+                const today = new Date();
+                const monthFilterElement = document.getElementById('monthFilter');
+                if (monthFilterElement) {
+                    monthFilterElement.value = today.toISOString().slice(0, 7);
                 }
-            }
 
-            // Generate calendar for current month and first employee
-            const selectedEmployee = uniqueEmployees[0] || '';
-            const selectedMonth = monthFilterElement ? monthFilterElement.value : today.toISOString().slice(0, 7);
+                // Set first employee as default selection
+                if (uniqueEmployees.length > 0) {
+                    const employeeFilterElement = document.getElementById('employeeFilter');
+                    if (employeeFilterElement) {
+                        employeeFilterElement.value = uniqueEmployees[0];
+                    }
+                }
 
-            if (selectedEmployee) {
-                generatePeroranganCalendar(selectedEmployee, selectedMonth);
+                // Generate calendar for current month and first employee
+                const selectedEmployee = uniqueEmployees[0] || '';
+                const selectedMonth = monthFilterElement ? monthFilterElement.value : today.toISOString().slice(0, 7);
+
+                if (selectedEmployee) {
+                    generatePeroranganCalendar(selectedEmployee, selectedMonth);
+                }
+
+            } catch (error) {
+                console.error('Error loading employees from Apps Script:', error);
+                // Fallback to using employeeData if available
+                uniqueEmployees = [...new Set(employeeData.map(item => item.employee))];
+                populateEmployeeDropdown();
+                setupEmployeeSearch();
             }
         }
 
