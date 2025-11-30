@@ -1,4 +1,4 @@
-2<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -738,21 +738,22 @@
 
             try {
                 // Google Apps Script URL - PASTE SCRIPT URL HERE
-                const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAa0Io2RgM4uT4PDFrk8F3Hot5-8RRTqriNWG6KAwlmV4_CyTmkWsIjWdExXQX9pergA/exec";
+                const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOpiYy3TsC6GC53ZzXa1HDMG86Pw0nz7prft0m2qCs7XivzgHJNE_8T4Jk-wLjFLbADg/exec";
 
                 // Load data from Google Apps Script
                 const jsonData = await new Promise((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
-                    xhr.open('GET', SCRIPT_URL + '?action=getAllSheetData', true);
-                    xhr.responseType = 'json';
+                    xhr.open('GET', SCRIPT_URL, true);
+                    xhr.responseType = 'text';
 
                     xhr.onload = function() {
                         if (xhr.status === 200) {
                             try {
-                                const response = JSON.parse(xhr.response);
+                                const response = JSON.parse(xhr.responseText);
                                 resolve(response);
                             } catch (e) {
-                                reject(new Error('Invalid JSON response from Apps Script'));
+                                console.log('Raw response:', xhr.responseText);
+                                reject(new Error('Invalid JSON response from Apps Script: ' + e.message));
                             }
                         } else {
                             reject(new Error(`HTTP error! status: ${xhr.status}`));
@@ -2014,15 +2015,16 @@
                 const employees = await new Promise((resolve, reject) => {
                     const xhr = new XMLHttpRequest();
                     xhr.open('GET', SCRIPT_URL + '?action=getEmployeeList', true);
-                    xhr.responseType = 'json';
+                    xhr.responseType = 'text';
 
                     xhr.onload = function() {
                         if (xhr.status === 200) {
                             try {
-                                const response = JSON.parse(xhr.response);
+                                const response = JSON.parse(xhr.responseText);
                                 resolve(response);
                             } catch (e) {
-                                reject(new Error('Invalid JSON response from Apps Script'));
+                                console.log('Raw employee response:', xhr.responseText);
+                                reject(new Error('Invalid JSON response from Apps Script: ' + e.message));
                             }
                         } else {
                             reject(new Error(`HTTP error! status: ${xhr.status}`));
