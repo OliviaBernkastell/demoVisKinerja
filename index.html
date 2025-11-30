@@ -2125,15 +2125,23 @@
 
         function showAllEmployees() {
             const dropdown = document.getElementById('employeeDropdown');
-            let html = employeeList.map(emp =>
-                `<div class="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm" onclick="selectEmployee('${emp}')">${emp}</div>`
-            ).join('');
-            dropdown.innerHTML = html;
+            dropdown.innerHTML = '';
+
+            employeeList.forEach(emp => {
+                const item = document.createElement('div');
+                item.className = 'px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm';
+                item.textContent = emp;
+                item.addEventListener('click', () => selectEmployee(emp));
+                dropdown.appendChild(item);
+            });
+
             dropdown.classList.remove('hidden');
         }
 
         function filterEmployees(searchTerm) {
             const dropdown = document.getElementById('employeeDropdown');
+            dropdown.innerHTML = '';
+
             const filtered = employeeList.filter(emp =>
                 emp.toLowerCase().includes(searchTerm.toLowerCase())
             );
@@ -2141,10 +2149,13 @@
             if (filtered.length === 0) {
                 dropdown.innerHTML = '<div class="px-3 py-2 text-sm text-gray-500">Tidak ada hasil</div>';
             } else {
-                let html = filtered.map(emp =>
-                    `<div class="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm" onclick="selectEmployee('${emp}')">${emp}</div>`
-                ).join('');
-                dropdown.innerHTML = html;
+                filtered.forEach(emp => {
+                    const item = document.createElement('div');
+                    item.className = 'px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm';
+                    item.textContent = emp;
+                    item.addEventListener('click', () => selectEmployee(emp));
+                    dropdown.appendChild(item);
+                });
             }
             dropdown.classList.remove('hidden');
         }
@@ -2165,8 +2176,12 @@
         // Event listeners for perorangan filters
         document.addEventListener('DOMContentLoaded', function() {
             const monthFilter = document.getElementById('monthFilter');
+            const applyPeroranganFilterBtn = document.getElementById('applyPeroranganFilter');
 
             if (monthFilter) monthFilter.addEventListener('change', applyPeroranganFilters);
+            if (applyPeroranganFilterBtn) {
+                applyPeroranganFilterBtn.addEventListener('click', applyPeroranganFilters);
+            }
         });
 
         function applyPeroranganFilters() {
@@ -2175,6 +2190,22 @@
 
             if (selectedEmployee && selectedMonth) {
                 generatePeroranganCalendar(selectedEmployee, selectedMonth);
+                showToast(`Menampilkan kalender untuk ${selectedEmployee} - ${selectedMonth}`, 'info');
+            } else {
+                // Clear calendar if no employee or month selected
+                const calendarGridPerorangan = document.getElementById('calendarGridPerorangan');
+                const activityListPerorangan = document.getElementById('activityListPerorangan');
+                const selectedDateDetailsPerorangan = document.getElementById('selectedDateDetailsPerorangan');
+
+                if (calendarGridPerorangan) {
+                    calendarGridPerorangan.innerHTML = '<div class="col-span-7 text-center text-gray-500 p-8">Silakan pilih pegawai dan bulan untuk melihat kalender</div>';
+                }
+                if (activityListPerorangan) {
+                    activityListPerorangan.innerHTML = '';
+                }
+                if (selectedDateDetailsPerorangan) {
+                    selectedDateDetailsPerorangan.style.display = 'none';
+                }
             }
         }
 
@@ -2216,14 +2247,9 @@
             });
 
             // Generate calendar HTML
-            const calendarGridPerorangan = document.getElementById('calendarGridPerorangan');
             const activityListPerorangan = document.getElementById('activityListPerorangan');
             const activityCount = document.getElementById('activityCount');
 
-            if (!calendarGridPerorangan) {
-                console.error('calendarGridPerorangan element not found');
-                return;
-            }
 
   
             // Generate dynamic calendar headers
@@ -2233,40 +2259,75 @@
                 headerHTML += `<div class="text-center text-xs font-medium text-gray-500 py-2">${dayNames[i]}</div>`;
             }
 
-            let calendarHTML = headerHTML; // Start with headers
+            // Generate calendar headers
+            const calendarHeader = document.getElementById('calendarHeader');
+            const calendarGridPerorangan = document.getElementById('calendarGridPerorangan');
+
+            if (!calendarHeader || !calendarGridPerorangan) {
+                console.error('Calendar elements not found');
+                return;
+            }
+
+            // Set headers
+            calendarHeader.innerHTML = headerHTML;
+
+            // Clear calendar grid
+            calendarGridPerorangan.innerHTML = '';
+
+            // Add empty cells for days before month starts
+            for (let i = 0; i < startDayOfWeek; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'p-2 bg-gray-50 rounded';
+                calendarGridPerorangan.appendChild(emptyCell);
+            }
+
+            // Add cells for each day of month
             for (let day = 1; day <= daysInMonth; day++) {
                 const activities = monthlyActivities[day] || [];
                 const activityCountForDay = activities.length;
 
                 let cellClass = 'calendar-cell relative p-2 text-center rounded-lg cursor-pointer transition-all duration-200 ';
 
+                // Determine cell color based on activity count
                 if (activityCountForDay === 0) {
-                    cellClass += 'bg-red-50 hover:bg-red-100 border border-red-200 text-red-800';
+                    cellClass += 'bg-red-50 hover:bg-red-100 border border-red-200';
+                } else if (activityCountForDay <= 2) {
+                    cellClass += 'bg-green-50 hover:bg-green-100 border border-green-200';
                 } else {
-                    cellClass += 'bg-green-50 hover:bg-green-100 border border-green-200 text-green-800';
+                    cellClass += 'bg-yellow-50 hover:bg-yellow-100 border border-yellow-200';
                 }
 
-                calendarHTML += `
-                    <div class="${cellClass}" data-day="${day}" data-month="${monthYear}" data-employee="${employee}">
-                        <div class="text-sm font-medium">${day}</div>
-                        ${activityCountForDay > 0 ? `<div class="text-xs font-bold text-gray-700">${activityCountForDay}</div>` : '<div class="text-xs text-gray-500">-</div>'}
-                    </div>
+                const cell = document.createElement('div');
+                cell.className = cellClass;
+                cell.setAttribute('data-day', day);
+                cell.setAttribute('data-month', monthYear);
+                cell.setAttribute('data-employee', employee);
+
+                // Check if this is today
+                const today = new Date();
+                const cellDate = new Date(year, month - 1, day);
+                if (today.toDateString() === cellDate.toDateString()) {
+                    cell.classList.add('ring-2', 'ring-primary');
+                }
+
+                cell.innerHTML = `
+                    <div class="text-sm font-medium">${day}</div>
+                    ${activityCountForDay > 0 ?
+                        `<div class="text-xs font-bold mt-1">${activityCountForDay}</div>
+                         <div class="text-xs text-gray-500">kegiatan</div>` :
+                        `<div class="text-xs text-gray-400 mt-1">-</div>`}
                 `;
-            }
 
-            calendarGridPerorangan.innerHTML = calendarHTML;
-
-            // Add event listeners to calendar cells
-            const calendarCells = calendarGridPerorangan.querySelectorAll('.calendar-cell');
-
-            calendarCells.forEach(cell => {
+                // Add click event
                 cell.addEventListener('click', function() {
                     const day = parseInt(this.getAttribute('data-day'));
                     const monthYear = this.getAttribute('data-month');
                     const employee = this.getAttribute('data-employee');
                     showPeroranganActivities(day, monthYear, employee);
                 });
-            });
+
+                calendarGridPerorangan.appendChild(cell);
+            }
 
             // Clear activity details
             if (activityListPerorangan) {
@@ -2311,6 +2372,9 @@
             if (selectedDateTextPerorangan) {
                 selectedDateTextPerorangan.textContent = `${dateStr} - ${employee}`;
             }
+
+            // Scroll to details section
+            selectedDateDetailsPerorangan.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
             if (activityCount) {
                 activityCount.textContent = dayActivities.length;
