@@ -790,10 +790,39 @@
                     // Google Apps Script URL - PASTE SCRIPT URL HERE
                     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOpiYy3TsC6GC53ZzXa1HDMG86Pw0nz7prft0m2qCs7XivzgHJNE_8T4Jk-wLjFLbADg/exec";
 
-                    // Load data from Google Apps Script
+                    // First, load employee list to get all employees (even those without data)
+                    const employeeList = await new Promise((resolve, reject) => {
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', SCRIPT_URL + '?action=getEmployeeList', true);
+                        xhr.responseType = 'text';
+
+                        xhr.onload = function () {
+                            if (xhr.status === 200) {
+                                try {
+                                    const response = JSON.parse(xhr.responseText);
+                                    resolve(response);
+                                } catch (e) {
+                                    console.log('Raw employee list response:', xhr.responseText);
+                                    reject(new Error('Invalid JSON response for employee list: ' + e.message));
+                                }
+                            } else {
+                                reject(new Error(`HTTP error! status: ${xhr.status}`));
+                            }
+                        };
+
+                        xhr.onerror = function () {
+                            reject(new Error('Network error while calling Apps Script for employee list'));
+                        };
+
+                        xhr.send();
+                    });
+
+                    console.log('Employee list loaded:', employeeList.length, 'employees');
+
+                    // Then load data from Google Apps Script
                     const jsonData = await new Promise((resolve, reject) => {
                         const xhr = new XMLHttpRequest();
-                        xhr.open('GET', SCRIPT_URL, true);
+                        xhr.open('GET', SCRIPT_URL + '?action=getAllSheetData', true);
                         xhr.responseType = 'text';
 
                         xhr.onload = function () {
@@ -831,6 +860,32 @@
                         activity: item.kegiatan,
                         status: determineStatus(new Date(item.tanggal_akhir), new Date(item.tanggal_awal))
                     }));
+
+                    // Ensure ALL employees from employeeList are included, even those without data
+                    const employeesWithData = new Set(employeeData.map(item => item.employee));
+                    const employeesWithoutData = employeeList.filter(emp => !employeesWithData.has(emp));
+
+                    // Add placeholder entries for employees without data
+                    let idCounter = employeeData.length > 0 ? Math.max(...employeeData.map(d => d.id)) : 0;
+                    employeesWithoutData.forEach(emp => {
+                        idCounter++;
+                        employeeData.push({
+                            id: idCounter,
+                            employee: emp,
+                            rencana_kinerja: '',
+                            kegiatan: 'Belum mengisi rencana kerja',
+                            tanggal_awal: '',
+                            tanggal_akhir: '',
+                            startDate: null,
+                            endDate: null,
+                            planCategory: '',
+                            activity: 'Belum mengisi rencana kerja',
+                            status: 'pending'
+                        });
+                    });
+
+                    console.log('Total employees (with + without data):', employeeData.length);
+                    console.log('Employees without data:', employeesWithoutData.length);
 
                     // Process data
                     processData();
